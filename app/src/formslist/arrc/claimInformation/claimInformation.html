@@ -1,0 +1,153 @@
+<section>
+    <uib-accordion close-others="false">
+    <div uib-accordion-group class="panel-default" heading="Claim Information" is-open="true">
+        <div class="row grid">
+            <!-- *** Claim Informations *** -->
+            <div class="col-md-6">
+                <!-- panel -->
+                <div class="panel panel-piluku">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Date and Time of Loss
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group col-md-6 m-t">
+                                <label class="control-label">Date & Time:</label>
+                                <div class="input-group date" ng-click="open1()">
+                                    <input type="text"
+                                           class="form-control"
+                                           uib-datepicker-popup="{{format}}"
+                                           ng-model="claimInformation.dateLoss" is-open="popup1.opened"
+                                           datepicker-options="dateOptions"
+                                           ng-required="true" close-text="Close"
+                                           alt-input-formats="altInputFormats" />
+                                    <span class="input-group-addon bg">
+                                        <i class="ion ion-ios-calendar-outline"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div uib-timepicker ng-model="mytime"
+                                     hour-step="hstep"
+                                     minute-step="mstep" show-meridian="true">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Company Name:</label>
+                                <input type="text" ng-model="claimInformation.companyName"
+                                       uib-typeahead="company as company.companyName for company in Companies | filter:$viewValue"
+                                       class="form-control" typeahead-show-hint="true"
+                                       typeahead-min-length="0">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Company Code:</label>
+                                <input type="text" class="form-control" ng-model="claimInformation.companyCode" disabled>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Claim Number (as reported to OMIA):</label>
+                                <input type="text" class="form-control" ng-model="claimInformation.claimNumber" placeholder="">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Type of Loss:</label>
+                                <select class="name_search form-control" ng-model="claimInformation.typeLoss"
+                                        ng-options=" typeLossList as typeLossList for typeLossList in lossType">
+                                </select>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Insured Name:</label>
+                                <input type="text" class="form-control" ng-model="claimInformation.insuredName" disabled>
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                </div>
+                <!-- /panel -->
+            </div>
+            <!-- /col-md-6 -->
+
+            <!-- *** Member Company Claims Handler Information *** -->
+            <div class="col-md-6">
+                <!-- panel -->
+                <div class="panel panel-piluku">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Member Company Claims Handler Information
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label class="control-label">First Name:</label>
+                                <input type="text" class="form-control" ng-model="claimInformation.memberFirstName" placeholder="">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Last Name:</label>
+                                <input type="text" class="form-control" ng-model="claimInformation.memberLastName" placeholder="">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Email Address:</label>
+                                <input type="email" class="form-control" ng-model="claimInformation.memberEmail" placeholder="">
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                    <div class="panel-body form-group check-radio">
+                        <input type="checkbox" id="c2a" ng-model="theHandler" ng-change="setSameValues(theHandler)" />
+                        <label for="c2a"><span></span>Handler is the submitter</label>
+                    </div>
+                    <div>
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Submitted By Information
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label class="control-label">First Name:</label>
+                                    <input type="text" class="form-control" ng-model="claimInformation.submitFirstName" ng-disabled="theHandler">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="control-label">Last Name:</label>
+                                    <input type="text" class="form-control" ng-model="claimInformation.submitLastName" ng-disabled="theHandler">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="control-label">Email Address:</label>
+                                    <input type="email" class="form-control" ng-model="claimInformation.submitEmail" ng-disabled="theHandler">
+                                </div>
+                            </div>
+                            <!-- /row -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /panel -->
+            </div>
+            <!-- /col-md-6 -->
+        </div>
+    </div>
+    <div uib-accordion-group class="panel-default" heading="Attachments" is-open="true">
+        <div class="row grid">
+            <!-- *** Attachments *** -->
+            <div class="col-md-6">
+                <!-- panel -->
+                <div class="panel panel-piluku">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="control-label">Attach Declaration Pages:</label>
+                            <input type="file" ng-model="claimInformation.attachments" class="filestyle" data-icon="false">
+                        </div>
+                    </div>
+                </div>
+                <!-- /panel -->
+            </div>
+            <!-- /col-md-6 -->
+        </div>
+    </div>
+    </uib-accordion>
+    <div class="row col-md-12">
+        <button class="btn btn-primary" ng-click="save()">Save</button>
+    </div>
+</section>
+<!-- /row-->

@@ -1,0 +1,112 @@
+<section>
+    <uib-accordion close-others="false">
+        <div uib-accordion-group class="panel-default" heading="Coverage" is-open="true">
+            <div class="row grid">
+                <!-- *** Coverage *** -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label class="control-label">Has an off or reduced coverage position been taken regarding any coverages available to the policyholder?</label>
+                            <select class="form-control" ng-model="CauseSpill" ng-options="opt as opt for opt in assignList | filter:'!Pending'">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Comments:</label>
+                            <textarea rows="3" class="form-control" ng-model="CoverageComments"></textarea>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /col-md-6 -->
+            </div>
+        </div>
+        <div uib-accordion-group class="panel-default" heading="Investigation" is-open="true">
+            <div class="row grid">
+                <!-- *** Investigation *** -->
+                <div class="form-group check-radio">
+                    <div class="col-sm-4">
+                        <label class="control-label">Check Boxes:</label>
+                        <ul class="list-inline checkboxes-radio">
+                            <li class="col-sm-8">
+                                <input type="checkbox" id="info1" />
+                                <label for="info1"><span></span>Engineering Report</label>
+                            </li>
+                            <li class="col-sm-8">
+                                <input type="checkbox" id="info2"/>
+                                <label for="info2"><span></span>Fire Marshall Report</label>
+                            </li>
+                            <li class="col-sm-8">
+                                <input type="checkbox" id="info3" />
+                                <label for="info3"><span></span>Photographs</label>
+                            </li>
+                            <li class="col-sm-8">
+                                <input type="checkbox" id="info4" />
+                                <label for="info4"><span></span>Statements Taken</label>
+                            </li>
+                            <li class="col-sm-8">
+                                <input type="checkbox" id="info5" />
+                                <label for="info5"><span></span>Structural Engineering Report</label>
+                            </li>
+                            <li class="col-sm-8">
+                                <input type="checkbox" id="info6" />
+                                <label for="info6"><span></span>Surveillance</label>
+                            </li>
+                            <li class="col-sm-8">
+                                <input type="checkbox" id="info7" />
+                                <label for="info7"><span></span>Other</label><br><br>
+                            </li>
+                        </ul>
+                        <div class="form-group">
+                            <label class="control-label">Other Investigation Type:</label>
+                            <input type="text" class="form-control" ng-model="InvestType">
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label">Comments:</label>
+                        <textarea rows="5" class="form-control" ng-model="InvestComments"></textarea>
+                    </div>
+                </div>
+                <!-- /col-md-6 -->
+            </div>
+        </div>
+        <div uib-accordion-group class="panel-default" heading="Liability" is-open="true">
+            <div class="row grid">
+                <!-- *** Liability *** -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Liability (comment on assessment of liability):</label>
+                            <textarea rows="3" class="form-control" ng-model="LiabilComments"></textarea>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /col-md-6 -->
+            </div>
+        </div>
+        <div uib-accordion-group class="panel-default" heading="Legal" is-open="true">
+            <div class="row grid">
+                <!-- *** Legal *** -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label class="control-label">Has litigation been commenced?</label>
+                            <select class="form-control" ng-model="CauseSpill" ng-options="opt as opt for opt in assignList | filter:'!Pending'">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label class="control-label">Comments:</label>
+                            <textarea rows="3" class="form-control" ng-model="LegalComments"></textarea>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /col-md-6 -->
+            </div>
+        </div>
+    </uib-accordion>
+    <!-- /row-->
+    <div class="row col-md-12">
+        <button class="btn btn-primary" ng-click="save()">Save</button>
+    </div>
+</section>

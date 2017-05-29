@@ -1,0 +1,173 @@
+<!doctype html>
+<html class="no-js" ng-app="fmreApp">
+<head>
+    <meta charset="utf-8">
+    <title>Demo Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- build:css assets/css/styles.min.css -->
+	<!-- using twitter bootstrap, but of course -->
+    <!--<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- styles for ng-animate are located here -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/loading-bar.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/material.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+    <!-- bower:css -->
+     <!-- endbower -->
+    <!-- inject:css -->
+    
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- endinject -->
+    <!-- endbuild -->
+    <script src='assets/js/jquery.js'></script>
+    <script>
+        jQuery(window).load(function () {
+            $('.piluku-preloader').addClass('hidden');
+        });
+    </script>
+</head>
+<body ng-controller="baseController">
+<div class="piluku-preloader text-center">
+    <!-- <div class="progress">
+        <div class="indeterminate"></div>
+    </div> -->
+    <div class="loader">Loading...</div>
+</div>
+<div class="wrapper">
+    <!--Load Left Sidebar -->
+    <ng-include src="'src/layouts/leftSideBar.html'" onload="" autoscroll=""></ng-include>
+
+    <!-- content holder for Top Navbar and Main content -->
+    <div class="content" id="content">
+
+      <!-- Load Top Navbar  -->
+      <ng-include src="'src/layouts/topNavBar.html'" onload="" autoscroll=""></ng-include>
+
+      <!-- Main Loaded here -->
+      <div class="main-content">
+        <div ng-view></div>
+      </div>
+
+      <!-- Load Top Navbar  -->
+      <ng-include src="'src/layouts/rightSideBar.html'" onload="" autoscroll=""></ng-include>
+
+    </div>
+    <!-- /Content Holder -->
+</div>
+
+
+
+<!-- Vendor Scripts -->
+
+<script src='assets/js/jquery-ui-1.10.3.custom.min.js'></script>
+<script src='assets/js/bootstrap.min.js'></script>
+<script src='assets/js/jquery.nicescroll.min.js'></script>
+<script src='assets/js/wow.min.js'></script>
+<script src='assets/js/jquery.loadmask.min.js'></script>
+<script src='assets/js/jquery.accordion.js'></script>
+<script src='assets/js/materialize.js'></script>
+<script src='assets/js/build/d3.min.js'></script>
+<script src='assets/js/core.js'></script>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+<!-- inject:js -->
+
+<script src="src/shared/modules/alert/alert.module.js"></script>
+
+<script src="src/shared/modules/exception/exception.module.js"></script>
+
+<script src="src/shared/modules/user/user.module.js"></script>
+
+<script src="src/shared/modules/localStorage/localStorage.module.js"></script>
+
+<script src="src/shared/controllers/login/Login.js"></script>
+
+<script src="src/shared/directives/logOut/logOut.js"></script>
+
+<script src="src/shared/modules/alert/alert.directive.js"></script>
+
+<script src="src/shared/modules/alert/alert.service.js"></script>
+
+<script src="src/shared/modules/exception/exception-handler.provider.js"></script>
+
+<script src="src/shared/modules/exception/interpolate.provider.js"></script>
+
+<script src="src/shared/modules/user/addToken.interceptor.js"></script>
+
+<script src="src/shared/modules/user/authenticate.service.js"></script>
+
+<script src="src/shared/modules/user/currentUser.service.js"></script>
+
+<script src="src/shared/modules/user/unAuthorized.interceptor.js"></script>
+
+<script src="src/shared/modules/localStorage/localStorage.service.js"></script>
+
+<script src="src/shared/services/API/API.js"></script>
+
+<script src="app.Module.js"></script>
+
+<script src="app.EndPoints.js"></script>
+
+<script src="app.Routes.js"></script>
+
+<script src="app.OnRun.js"></script>
+
+<script src="src/formslist/arrc/claimantDetails/claimantDetails.directive.js"></script>
+
+<script src="src/formslist/arrc/claimInformation/claimInformation.directive.js"></script>
+
+<script src="src/formslist/arrc/descriptionOfLoss/descriptionOfLoss.directive.js"></script>
+
+<script src="src/formslist/arrc/fuelOilEscapeDetails/fuelOilEscapeDetails.directive.js"></script>
+
+<script src="src/formslist/arrc/paymentReserves/paymentReserves.directive.js"></script>
+
+<script src="src/formslist/arrc/planOfAction/planOfAction.directive.js"></script>
+
+<script src="src/formslist/arrc/summary/summary.directive.js"></script>
+
+<script src="src/formslist/arrc/vehicleDetails/vehicleDetails.directive.js"></script>
+
+<script src="src/formslist/arrc/claimantDetails/medicalAssessments/medicalAssessments.directive.js"></script>
+
+<script src="src/formslist/arrc/claimantDetails/personClaimant/personClaimant.directive.js"></script>
+
+<script src="src/formslist/arrc/descriptionOfLoss/relatedClaims/relatedClaims.directive.js"></script>
+
+<script src="src/formslist/arrc/paymentReserves/paymentReservesDetailsForm/paymentReservesDetails.directive.js"></script>
+
+<script src="src/formslist/arrc/vehicleDetails/thirdPartyForm/thirdPartyForm.directive.js"></script>
+
+<script src="src/data.js"></script>
+
+<script src="src/baseController/baseController.js"></script>
+
+<script src="src/dashboard/dashboardController.js"></script>
+
+<script src="src/formslist/arrc/arrc.service.js"></script>
+
+<script src="src/formslist/arrc/arrcController.js"></script>
+
+<script src="src/formslist/arrc/noticeOfLoss.service.js"></script>
+
+<script src="src/formslist/arrc/noticeOfLossID.value.js"></script>
+
+<script src="src/layouts/js/layout.js"></script>
+
+<!-- endinject -->
+
+<alert></alert>
+</body>
+</html>

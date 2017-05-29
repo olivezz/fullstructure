@@ -1,0 +1,302 @@
+<section>
+    <uib-accordion close-others="false">
+        <div uib-accordion-group class="panel-default" is-open="true">
+
+            <!-- panel -->
+            <div class="panel panel-piluku">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Claimant Information <!--<button class="btn btn-red" ng-click="removeForm()">Remove</button>-->
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="control-label">First Name</label>
+                            <input type="text" class="form-control" ng-model="claimantDetails.firstName">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Last Name</label>
+                            <input type="text" class="form-control" ng-model="claimantDetails.lastName">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Marital Status</label>
+                            <select class="form-control" ng-model="claimantDetails.maritalStatus" ng-options="opt as opt for opt in marital"></select>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Date of Birth</label>
+                            <input type="text" class="form-control" ng-model="claimantDetails.dateBirth"/>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="control-label">Gender</label>
+                            <select class="form-control" ng-model="claimantDetails.gender" ng-options="opt as opt for opt in genters"></select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">City of Residence</label>
+                            <input type="text" class="form-control" ng-model="claimantDetails.cityResidence">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="control-label">Province of Residence</label>
+                            <input type="text" ng-model="claimantDetails.provinceResidence"
+                                   uib-typeahead="Province as Province for Province in Provinces | filter:$viewValue"
+                                   class="form-control" typeahead-show-hint="true"
+                                   typeahead-min-length="0">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="control-label">Claimant's Involvement</label>
+                            <select class="form-control" ng-model="claimantDetails.claimantInvolment" ng-options="opt as opt for opt in involvement"></select>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="control-label">Does this claimant have, or potentially have, an associated claim with your company?</label>
+                            <select class="form-control" ng-model="claimantDetails.associatedClaim" ng-options="opt as opt for opt in associated"></select>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="control-label">Did the accident occur while the claimant was at work?</label>
+                            <select class="form-control" ng-model="claimantDetails.claimantWork" ng-options="opt as opt for opt in assignList | filter:'!Pending'"></select>
+                        </div>
+
+                    </div>
+                    <!-- /row -->
+                </div>
+            </div>
+
+            <!-- panel -->
+            <div class="panel panel-piluku">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Claimant Legal Representation
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label class="control-label">Has Legal Representation</label>
+                            <select class="form-control" ng-model="claimantDetails.hasLegaReps" ng-options="opt as opt for opt in assignList | filter:'!Pending'"></select>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+            </div>
+
+            <!-- panel -->
+            <div class="panel panel-piluku">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Claimant Injury Details
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label class="control-label">Injuries reported on the date of loss; (any diagnostic testing (e.g. MRI, CT Scan, X-Rays, etc.))"</label>
+                            <input type="text" class="form-control" ng-model="claimantDetails.injuriesReportedDateLoss">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="control-label">Pre-existing injuries an/or medical issues</label>
+                            <input type="text" class="form-control" ng-model="claimantDetails.preExistingInjugiesMedical">
+                        </div>
+
+                        <div class="form-group col-md-5">
+                            <label class="control-label">What medical records do you have on file</label>
+                            <input type="text" class="form-control" ng-model="claimantDetails.medicalRecords">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            Current complaints and medical diagnosis as noted on the most recent OCF-3 or OCF-18
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="control-label">Obtained From</label>
+                            <select class="form-control" ng-model="claimantDetails.obtainedFrom" ng-options="opt as opt for opt in assignList | filter:'!Pending'"></select>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="control-label">Obtained Date</label>
+                            <input type="text" class="form-control" ng-model="claimantDetails.obtainedDate">
+                        </div>
+
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="control-label">Details (Include any injury status based on most recent OCF-3, or OCF-18)</label>
+                        <textarea rows="2" class="form-control" ng-model="claimantDetails.details"></textarea>
+                    </div>
+                </div>
+
+                <!-- panel -->
+                <div class="panel panel-piluku">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Claimant Weekly Benefit Status
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label class="control-label">Was the Claimant offered an Election of Weekly Benefits (OCF - 10)?</label>
+                                <select class="form-control" ng-model="claimantDetails.weeklyBenefitsOcf10" ng-options="opt as opt for opt in assignList | filter:'!Pending'"></select>
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                </div>
+                <div class="panel panel-piluku">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Claimant Collateral Benefits & Temporary Disability Benefits
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label class="control-label">Applicable</label>
+                                <select class="form-control" ng-model="claimantDetails.collateralBenefit" ng-options="opt as opt for opt in assignList | limitTo:2"></select>
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                </div>
+                <div class="panel panel-piluku">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Claimant Medical & Rehabilitation
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label class="control-label">Applies</label>
+                                <select class="form-control" ng-model="claimantDetails.medicalRehabApplies" ng-options="opt as opt for opt in assignList | limitTo:2"></select>
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                </div>
+                <div class="panel panel-piluku">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Claimant Attendant Care Benefit
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label class="control-label">Applies</label>
+                                <select class="form-control" ng-model="claimantDetails.medicalRehabApplies" ng-options="opt as opt for opt in assignList | limitTo:2"></select>
+
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                </div>
+                <div class="panel panel-piluku">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Claimant Housekeeping/Home Maintenance (H/HM) Benefit
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label class="control-label">Applies</label>
+                                <select class="form-control" ng-model="claimantDetails.claimantHouseKeeping" ng-options="opt as opt for opt in assignList | limitTo:2"></select>
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                </div>
+                <div class="panel panel-piluku">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Claimant Housekeeping/Home Maintenance (H/HM) Benefit
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label class="control-label">Applies</label>
+                                <select class="form-control" ng-model="claimantDetails.claimantHouseKeeping" ng-options="opt as opt for opt in assignList | limitTo:2"></select>
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                </div>
+                <div class="panel panel-piluku">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Lost Educational Expenses
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label class="control-label">Applies</label>
+                                <select class="form-control" ng-model="claimantDetails.claimantLossEducation" ng-options="opt as opt for opt in assignList | limitTo:2"></select>
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                </div>
+                <div class="panel panel-piluku">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Claimant Mediation/Arbitration/Litigation
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label class="control-label">Applies</label>
+                                <select class="form-control" ng-model="claimantDetails.claimantMediation" ng-options="opt as opt for opt in assignList | limitTo:2"></select>
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label class="control-label">Claimant Plan of Action</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <textarea rows="3" class="form-control" ng-model="claimantDetails.claimantPlanAction"></textarea>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+            </div>
+
+
+            <!--<uib-accordion-heading>-->
+                <!--Claimant Details (press 'Add' for each person/claimant)-->
+                <!--<button class="btn btn-primary" ng-click="addPersonClaimantForm();$event.stopPropagation();">Add</button>-->
+            <!--</uib-accordion-heading>-->
+            <!--<div class="row grid">-->
+                <!--&lt;!&ndash; *** Person Claimant *** &ndash;&gt;-->
+                <!--<div class="col-md-12" ng-repeat="form in claimantDetails.personClaimant track by $index">-->
+                    <!--<person-claimant assign-list="assignList" person-form-data="form" person-forms="claimantDetails.personClaimant"></person-claimant>-->
+                <!--</div>-->
+                <!--&lt;!&ndash; /col-md-6 &ndash;&gt;-->
+            <!--</div>-->
+        </div>
+
+        <div uib-accordion-group class="panel-default" is-open="true">
+            <uib-accordion-heading>
+                Medical Assessments (press 'Add' for each medical assessment)
+                <button class="btn btn-primary" ng-click="addMedicalAssessmentForm();$event.stopPropagation();">Add</button>
+            </uib-accordion-heading>
+            <div class="row grid">
+                <!-- *** Medical Assessment *** -->
+                <div class="col-md-12" ng-repeat="form in claimantDetails.medicalAssessments track by $index">
+                    <medical-assessments form-data="form" forms="claimantDetails.medicalAssessments"></medical-assessments>
+                </div>
+                <!-- /col-md-6 -->
+            </div>
+        </div>
+    </uib-accordion>
+    <div class="row col-md-12">
+        <button class="btn btn-primary" ng-click="save()">Save</button>
+    </div>
+</section>
+<!-- /row-->

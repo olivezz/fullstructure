@@ -1,0 +1,90 @@
+<section>
+    <uib-accordion close-others="false">
+        <div uib-accordion-group class="panel-default" is-open="true">
+            <!-- panel -->
+            <div class="panel panel-piluku">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Payment & Reserves
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group col-md-12">
+                        <label class="control-label">Reserve Analysis</label>
+                        <textarea rows="3" class="form-control" ng-model="reserveAnalysis"></textarea>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Adjusting Payment</label>
+                        <input type="text" class="form-control" ng-model="adjustmentPayments">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Adjusting Outstanding Reserve</label>
+                        <input type="text" class="form-control" ng-model="adjustmentOutstandingReserves">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Adjusting Cumulative Incurred Amount</label>
+                        <input type="text" class="form-control" ng-model="adjustingCummlativeIncurredAmt">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Expert Payments</label>
+                        <input type="text" class="form-control" ng-model="expertPayments">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Expert Outstanding Reserve</label>
+                        <input type="text" class="form-control" ng-model="expertOutstandingReserves">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Expert Adjusting Cumulative Incurred Amount</label>
+                        <input type="text" class="form-control" ng-model="expertCummlativeIncurredAmt">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Legal Payments</label>
+                        <input type="text" class="form-control" ng-model="legalPayments">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Legal Outstanding Reserve</label>
+                        <input type="text" class="form-control" ng-model="legalOutstandingReserves">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Legal Adjusting Cumulative Incurred Amount</label>
+                        <input type="text" class="form-control" ng-model="legalCummlativeIncurredAmt">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Total Payments</label>
+                        <input type="text" class="form-control" ng-model="totalPayments" disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Total Outstanding Reserve</label>
+                        <input type="text" class="form-control" ng-model="totalOutstandingReserves" disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Total Adjusting Cumulative Incurred Amount</label>
+                        <input type="text" class="form-control" ng-model="totalCummlativeIncurredAmt" disabled>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div uib-accordion-group class="panel-default" is-open="true">
+            <uib-accordion-heading>
+                Payment & Reserve Details <button class="btn btn-primary" ng-click="addPaymentReservesDetailsForm();$event.stopPropagation();">Add</button>
+            </uib-accordion-heading>
+            <div class="row grid">
+                <!-- *** payment Reserves Details *** -->
+                <div class="col-md-12" ng-repeat="form in paymentReserves.paymentReservesDetails track by $index">
+                    <payment-reserves-details-form form-data="form" forms="paymentReserves.paymentReservesDetails"></payment-reserves-details-form>
+                </div>
+                <!-- /col-md-6 -->
+            </div>
+        </div>
+    </uib-accordion>
+    <div class="row col-md-12">
+        <button class="btn btn-primary" ng-click="save()">Save</button>
+    </div>
+</section>

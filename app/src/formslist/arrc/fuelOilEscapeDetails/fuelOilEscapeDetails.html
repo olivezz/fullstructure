@@ -1,0 +1,131 @@
+<section>
+    <uib-accordion close-others="false">
+        <div uib-accordion-group class="panel-default" heading="Fuel Oil Escape Details" is-open="true">
+            <div class="row grid">
+                <!-- *** Fuel Oil Escape Details *** -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label class="control-label">Cause of Spill:</label>
+                            <select class="form-control" ng-model="CauseSpill" ng-options="opt as opt for opt in assignList">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label">Description of Loss:</label>
+                            <select class="form-control" ng-model="DesOfLoss" ng-options="opt as opt for opt in assignList">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label">Approximate Volume Lost (in litres):</label>
+                            <input type="text" class="form-control" ng-model="Volumelitres">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Remediation Undertaken:</label>
+                            <select class="form-control" ng-model="RemeUndertaken" ng-options="opt as opt for opt in assignList">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Soil Type:</label>
+                            <select class="form-control" ng-model="SoilType" ng-options="opt as opt for opt in assignList">
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Groundwater Affected:</label>
+                            <select class="form-control" ng-model="GroundwaterAffected" ng-options="opt as opt for opt in assignList">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Number of MTU's on-site:</label>
+                            <input type="text" class="form-control" ng-model="NumberMTU">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Off-site Contamination:</label>
+                            <select class="form-control" ng-model="OffsiteCont" ng-options="opt as opt for opt in assignList">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Months MTU(s) in operation:</label>
+                            <input type="text" class="form-control" ng-model="MonthsMTU">
+                        </div>
+
+
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /col-md-6 -->
+            </div>
+        </div>
+        <div uib-accordion-group class="panel-default" heading="Tank Information" is-open="true">
+            <div class="row grid">
+                <!-- *** Tank Information *** -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Year Manufactured (can not be after year of loss):</label>
+                            <input type="text" class="form-control" ng-model="YearManufactured">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Tank Installer:</label>
+                            <input type="text" class="form-control" ng-model="TankInstaller">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Tank Type:</label>
+                            <select class="form-control" ng-model="TankType" ng-options="opt as opt for opt in assignList">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Tank Manufacturer:</label>
+                            <select class="form-control" ng-model="TankManufacturer" ng-options="opt as opt for opt in assignList">
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label class="control-label">Service Agreement in place at time of loss?:</label>
+                            <select class="form-control" ng-model="SerAgrloss" ng-options="opt as opt for opt in assignList | filter:'!Pending'">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label">Automatic fill agreement with Fuel Supplier:</label>
+                            <select class="form-control" ng-model="AutoFuelSupr" ng-options="opt as opt for opt in assignList | filter:'!Pending'">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label">Tank installed outside of home?</label>
+                            <select class="form-control" ng-model="TankOutHome" ng-options="opt as opt for opt in assignList | filter:'!Pending'">
+                            </select>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /col-md-6 -->
+            </div>
+        </div>
+        <div uib-accordion-group class="panel-default" heading="Parties Involved" is-open="true">
+            <div class="row grid">
+                <!-- *** Parties Involved *** -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Vehicle Number on DEC Page:</label>
+                            <input type="text" class="form-control" ng-model="VehicleDEC">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">No. of Occupants:</label>
+                            <input type="text" class="form-control" ng-model="NoOccupants">
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /col-md-6 -->
+            </div>
+        </div>
+    </uib-accordion>
+    <!-- /row-->
+    <div class="row col-md-12">
+        <button class="btn btn-primary" ng-click="save()">Save</button>
+    </div>
+</section>

@@ -1,0 +1,8 @@
+<div class="alert-container">
+    <div ng-repeat="alert in currentAlerts" class="alert alert-{{alert.type}}">
+        <button type="button" class="close" ng-click="removeAlert(alert)">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{ alert.message }}
+    </div>
+</div><!-- /.alert-container -->

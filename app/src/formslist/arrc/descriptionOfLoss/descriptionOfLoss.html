@@ -1,0 +1,259 @@
+<section>
+    <uib-accordion close-others="false">
+        <div uib-accordion-group class="panel-default" heading="Description of Loss" is-open="true">
+            <div class="row grid">
+                <!-- *** Description of Loss *** -->
+                <div class="col-md-12">
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Date Loss Reported to Your Company:</label>
+                            <div class="input-group date" ng-click="open($event,'openedLoss')">
+                                <input type="text" class="form-control"
+                                       uib-datepicker-popup="{{format}}"
+                                       ng-model="descriptionOfLoss.dateLossReportToCompany"
+                                       is-open="opened.openedLoss"
+                                       datepicker-options="dateOptions"
+                                       close-text="Close"
+                                       alt-input-formats="altInputFormats" />
+                                <span class="input-group-addon bg">
+                                    <i class="ion ion-ios-calendar-outline"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Date Reported To Farm Mutal Re:</label>
+                            <div class="input-group">
+                                <input type="text" ng-model="descriptionOfLoss.dateLossReportToFmre" class="form-control" disabled/>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="control-label">City of Loss:</label>
+                            <input type="text" ng-model="descriptionOfLoss.cityLoss" class="form-control">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label class="control-label">Province of Loss:</label>
+                            <input type="text" ng-model="descriptionOfLoss.provLoss"
+                                   uib-typeahead="Province as Province for Province in Provinces | filter:$viewValue"
+                                   class="form-control" typeahead-show-hint="true"
+                                   typeahead-min-length="0">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label class="control-label">Policy Form (e.g. OMIAPP-0600-0199):</label>
+                            <input type="text" ng-model="descriptionOfLoss.policyForm" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label">Policy Number:</label>
+                            <input type="text" ng-model="descriptionOfLoss.policyNumber" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label">Policy Limit:</label>
+                            <input type="text" ng-model="descriptionOfLoss.policyLimit" class="form-control">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Policy Term From:</label>
+                            <div class="input-group date" ng-click="open($event,'openedStart')">
+                                <input type="text" class="form-control"
+                                       uib-datepicker-popup="{{format}}"
+                                       ng-model="descriptionOfLoss.policyTermFrom"
+                                       is-open="opened.openedStart"
+                                       datepicker-options="dateOptions"
+                                       close-text="Close"
+                                       alt-input-formats="altInputFormats" />
+                                <span class="input-group-addon bg">
+                                    <i class="ion ion-ios-calendar-outline"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Date Loss Reported to Your Company:</label>
+                            <div class="input-group date" ng-click="open($event,'openedEnd')">
+                                <input type="text" class="form-control"
+                                       uib-datepicker-popup="{{format}}"
+                                       ng-model="descriptionOfLoss.policyTermTo"
+                                       is-open="opened.openedEnd"
+                                       datepicker-options="dateOptions"
+                                       close-text="Close"
+                                       alt-input-formats="altInputFormats" />
+                                <span class="input-group-addon bg">
+                                    <i class="ion ion-ios-calendar-outline"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Details and Cause of Loss:</label>
+                            <textarea rows="3" ng-model="DetailsLoss" class="form-control"></textarea>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Assigned to Independent Adjuster:</label>
+                            <select class="form-control" ng-model="assignedIndAdj" ng-options="opt as opt for opt in assignList | filter:'!Pending'">
+                            </select>
+                        </div>
+                        <div class="col-md-12" ng-if="assignedIndAdj == 'Yes'">
+                            <div class="form-group col-md-4">
+                                <label class="control-label">Independent Adjusting Firm:</label>
+                                <input type="text" ng-model="descriptionOfLoss.independentAdjustFirm" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label">Independent Adjuster's Name:</label>
+                                <input type="text" ng-model="descriptionOfLoss.independentAdjusterName" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label">Date Independent Adjuster was Assigned:</label>
+                                <div class="input-group date" ng-click="open($event,'independent')">
+                                    <input type="text" class="form-control"
+                                           uib-datepicker-popup="{{format}}"
+                                           ng-model="descriptionOfLoss.dateIndependentAdjusterAssign"
+                                           is-open="opened.independent"
+                                           datepicker-options="dateOptions"
+                                           close-text="Close"
+                                           alt-input-formats="altInputFormats" />
+                                    <span class="input-group-addon bg">
+                                    <i class="ion ion-ios-calendar-outline"></i>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Assigned to Defence Counsel:</label>
+                            <select class="form-control" ng-model="descriptionOfLoss.assignToDefenceCounsel"
+                                    ng-options="opt as opt for opt in assignList | limitTo:2">
+                            </select>
+                        </div>
+                        <div class="col-md-12" ng-if="descriptionOfLoss.assignToDefenceCounsel == 'Yes'">
+                            <div class="form-group col-md-4">
+                                <label class="control-label">Independent Adjusting Firm:</label>
+                                <input type="text" ng-model="descriptionOfLoss.defenceCounselFirmName" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label">Independent Adjuster's Name:</label>
+                                <input type="text" ng-model="descriptionOfLoss.defenceCounselFirstName" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label">Independent Adjuster's Name:</label>
+                                <input type="text" ng-model="descriptionOfLoss.defenceCounselLastName" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-5">
+                            <label class="control-label">Police Report on File:</label>
+                            <select class="form-control" ng-model="descriptionOfLoss.policeReportFile"
+                                    ng-options="opt as opt for opt in assignList | filter:'!Pending'">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="control-label">Criminal Charges:</label>
+                            <select class="form-control" ng-model="descriptionOfLoss.criminalCharge"
+                                    ng-options="opt as opt for opt in assignList | filter:'!Pending'">
+                            </select>
+                        </div>
+                        <div class="col-md-12" ng-if="descriptionOfLoss.criminalCharge == 'Yes'">
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Criminal Charges Details:</label>
+                                <textarea rows="3" ng-model="descriptionOfLoss.criminalChargeDetails" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Does another Mutual Company insure any individuals involved in the loss?</label>
+                            <select class="form-control" ng-model="descriptionOfLoss.otherMutualInsureInvolved"
+                                    ng-options="opt as opt for opt in assignList | filter:'!Unknown'">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6" ng-if="descriptionOfLoss.otherMutualInsureInvolved == 'Yes'">
+                            <label class="control-label">Does another Mutual Company insure any individuals involved in the loss?</label>
+                            <select class="form-control" ng-model="descriptionOfLoss.otherMutualCompanyName"
+                                    ng-options="opt as opt for opt in assignList | filter:'!Unknown'">
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label class="control-label">Does your company have an Excess or Umbrella Liability policy for this insured?</label>
+                            <select class="form-control" ng-model="DoesExcess" ng-options="opt as opt for opt in assignList | filter:'!Pending'">
+                            </select>
+                        </div>
+                        <div class="col-md-12" ng-if="DoesExcess == 'Yes'">
+                            <div class="form-group col-md-4">
+                                <label class="control-label">Policy Form (e.g. OMIAPP-0600-0199):</label>
+                                <input type="text" ng-model="descriptionOfLoss.policyExcessForm" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label">Policy Number:</label>
+                                <input type="text" ng-model="descriptionOfLoss.policyExcessNumber" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label">Policy Limit:</label>
+                                <input type="text" ng-model="descriptionOfLoss.policyExcessLimit" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Policy Term From:</label>
+                                <div class="input-group date" ng-click="open($event,'openedExcessStart')">
+                                    <input type="text" class="form-control"
+                                           uib-datepicker-popup="{{format}}"
+                                           ng-model="policyExcessTermFrom"
+                                           is-open="opened.openedExcessStart"
+                                           datepicker-options="dateOptions"
+                                           close-text="Close"
+                                           alt-input-formats="altInputFormats" />
+                                    <span class="input-group-addon bg">
+                                    <i class="ion ion-ios-calendar-outline"></i>
+                                </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Date Loss Reported to Your Company:</label>
+                                <div class="input-group date" ng-click="open($event,'openedExcessEnd')">
+                                    <input type="text" class="form-control"
+                                           uib-datepicker-popup="{{format}}"
+                                           ng-model="policyExcessTermTo"
+                                           is-open="opened.openedExcessEnd"
+                                           datepicker-options="dateOptions"
+                                           close-text="Close"
+                                           alt-input-formats="altInputFormats" />
+                                    <span class="input-group-addon bg">
+                                    <i class="ion ion-ios-calendar-outline"></i>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-12">
+                            <label class="control-label">Does your company have any other claim files related to this loss?</label>
+                            <select class="form-control" ng-model="descriptionOfLoss.otherRelatedClaims"
+                                    ng-options="opt as opt for opt in assignList | filter:'!Pending'">
+                            </select>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /col-md-12 -->
+
+            </div>
+        </div>
+        <div uib-accordion-group class="panel-default" is-open="true" ng-if="descriptionOfLoss.otherRelatedClaims == 'Yes'">
+            <uib-accordion-heading>
+                Related Claim Details <button class="btn btn-primary" ng-click="addRelatedClaimsForm();$event.stopPropagation();">Add</button>
+            </uib-accordion-heading>
+            <div class="row grid">
+                <!-- ***  *** -->
+                <div class="col-md-12" ng-repeat="form in descriptionOfLoss.relatedClaimsDetails track by $index">
+                    <related-claims-form form-data="form" forms="descriptionOfLoss.relatedClaimsDetails"></related-claims-form>
+                </div>
+                <!-- /col-md-6 -->
+            </div>
+        </div>
+    </uib-accordion>
+    <!-- /row-->
+    <div class="row col-md-12">
+        <button class="btn btn-primary" ng-click="save()">Save</button>
+    </div>
+</section>

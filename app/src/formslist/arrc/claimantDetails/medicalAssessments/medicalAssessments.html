@@ -1,0 +1,70 @@
+<div class="row grid">
+    <!-- *** Medical Assessment Example *** -->
+        <!-- panel -->
+        <div class="panel panel-piluku">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Assessment for Claimant (enter from claimants above) <button class="btn btn-red" ng-click="removeForm()">Remove</button>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Claimant First Name:</label>
+                        <input type="text" class="form-control" ng-model="formData.firstName">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Claimant Last Name:</label>
+                        <input type="text" class="form-control" ng-model="formData.lastName">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Date of Medical Assessment:</label>
+                        <input type="text" class="form-control" ng-model="formData.dateAccessment">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label">Type of Medical Assessment:</label>
+                        <select ng-model="formData.typeAccessment" class="name_search form-control">
+                        </select>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+        </div>
+        <!-- /panel -->
+    <!-- /col-md-6 -->
+
+    <!-- *** Member Company Claims Handler Information *** -->
+        <!-- panel -->
+        <div class="panel panel-piluku">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Assessor Information
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Title:</label>
+                        <input type="text" class="form-control" ng-model="formData.acceesorTitle">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">First Name:</label>
+                        <input type="text" class="form-control" ng-model="formData.acceesorFirstName">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">CLast Name:</label>
+                        <input type="text" class="form-control" ng-model="formData.acceesorLastName">
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label class="control-label">Recommendations/Prognosis:</label>
+                        <textarea rows="3" class="form-control" ng-model="formData.acceesorRecommendations"></textarea>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+        </div>
+        <!-- /panel -->
+    <!-- /col-md-6 -->
+</div>

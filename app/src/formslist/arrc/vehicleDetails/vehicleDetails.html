@@ -1,0 +1,83 @@
+<section>
+    <uib-accordion close-others="false">
+        <div uib-accordion-group class="panel-default" heading="Vehicle Details" is-open="true">
+            <div class="row grid">
+                <!-- *** Vehicle Details *** -->
+                <div class="col-md-12">
+                    <!-- panel -->
+                    <div class="panel panel-piluku">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Insured Vehicle
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="control-label">Vehicle Number on DEC Page:</label>
+                                    <input type="text" class="form-control" ng-model="insuredVehicle.vehicleNumber">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="control-label">No. of Occupants:</label>
+                                    <input type="text" class="form-control" ng-model="insuredVehicle.numberOfOccupants">
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label class="control-label">Driver:</label>
+                                    <input type="text" class="form-control" ng-model="insuredVehicle.driver">
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label class="control-label">Was the insured vehicle in the Facility Risk Sharing Pool:</label>
+                                    <select class="form-control" ng-model="insuredVehicle.facilityRiskSharingPool" ng-options="opt as opt for opt in assignList | filter:'!Pending'">
+                                    </select>
+                                </div>
+
+                                <div class="col-md-9">
+                                    <label class="control-label">VIN:</label>
+                                    <div class="form-group input-group demo-group">
+                                        <input type="text" class="form-control" ng-model="insuredVehicle.vin">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-info btn-lg" type="button">Look-up Vehicle Info</button>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label class="control-label">Make:</label>
+                                    <input type="text" class="form-control" ng-model="insuredVehicle.make">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="control-label">Model:</label>
+                                    <input type="text" class="form-control" ng-model="insuredVehicle.model">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="control-label">Year:</label>
+                                    <input type="text" class="form-control" ng-model="insuredVehicle.year">
+                                </div>
+                            </div>
+                            <!-- /row -->
+                        </div>
+                    </div>
+                    <!-- /panel -->
+                </div>
+                <!-- /col-md-6 -->
+            </div>
+        </div>
+        <div uib-accordion-group class="panel-default" is-open="true" ng-if="formTemplate == 'Bodily Injury'">
+            <uib-accordion-heading>
+                I can have markup, too! <button class="btn btn-primary" ng-click="addThirdPartyForm();$event.stopPropagation();">Add</button>
+            </uib-accordion-heading>
+            <div class="row grid">
+                <!-- ***  *** -->
+                <div class="col-md-12" ng-repeat="form in insuredVehicle.thirdPartyVehicles track by $index">
+                    <third-party-form form-data="form" forms="insuredVehicle.thirdPartyVehicles"></third-party-form>
+                </div>
+                <!-- /col-md-6 -->
+            </div>
+        </div>
+    </uib-accordion>
+    <!-- /row-->
+    <div class="row col-md-12">
+        <button class="btn btn-primary" ng-click="save()">Save</button>
+    </div>
+</section>
